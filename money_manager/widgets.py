@@ -9,7 +9,10 @@ from kivy.uix.widget import Widget
 
 class Card(BoxLayout):
     def __init__(self, bg_color: tuple[float, float, float, float], **kwargs):
-        super().__init__(orientation="vertical", padding=16, spacing=10, **kwargs)
+        kwargs.setdefault("orientation", "vertical")
+        kwargs.setdefault("padding", 16)
+        kwargs.setdefault("spacing", 10)
+        super().__init__(**kwargs)
         self.bg_color = bg_color
         with self.canvas.before:
             self._color = Color(*self.bg_color)

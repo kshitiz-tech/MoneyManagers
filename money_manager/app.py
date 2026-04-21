@@ -264,10 +264,10 @@ class RegisterScreen(BasePhoneScreen):
         brand.add_widget(self.styled_label("Create your account", color_key="muted", size_hint_y=None, height=dp(28), halign="center"))
         wrapper.add_widget(brand)
 
-        self.name = self.input_field("Enter your name")
+        self.name_input = self.input_field("Enter your name")
         self.password = self.input_field("Enter your password", password=True)
         self.confirm = self.input_field("Confirm your password", password=True)
-        for title, field in [("Name", self.name), ("Password", self.password), ("Confirm Password", self.confirm)]:
+        for title, field in [("Name", self.name_input), ("Password", self.password), ("Confirm Password", self.confirm)]:
             wrapper.add_widget(self.styled_label(title, size_hint_y=None, height=dp(24)))
             wrapper.add_widget(field)
 
@@ -290,7 +290,11 @@ class RegisterScreen(BasePhoneScreen):
         if self.password.text != self.confirm.text:
             self.status.text = "Passwords do not match."
             return
-        ok, message = self.app().service.register(self.name.text, self.username_key(self.name.text), self.password.text)
+        ok, message = self.app().service.register(
+            self.name_input.text,
+            self.username_key(self.name_input.text),
+            self.password.text,
+        )
         self.status.text = message
         if ok:
             self.app().go_to("login")
