@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import date
 
 from kivy.app import App
-from kivy.core.window import Window
+from kivy.config import Config
 from kivy.graphics import Color, Rectangle
 from kivy.metrics import dp
 from kivy.uix.anchorlayout import AnchorLayout
@@ -19,6 +19,16 @@ from kivy.uix.textinput import TextInput
 from money_manager.database import CATEGORIES, CURRENCIES, THEMES, Database
 from money_manager.services import MoneyManagerService
 from money_manager.widgets import Card, PieChartWidget
+
+
+if Config.has_section("input"):
+    Config.remove_section("input")
+Config.add_section("input")
+Config.set("input", "mouse", "mouse,multitouch_on_demand")
+Config.set("graphics", "minimum_width", "520")
+Config.set("graphics", "minimum_height", "1020")
+
+from kivy.core.window import Window
 
 
 LIGHT = {
@@ -752,7 +762,7 @@ class MoneyManagerApp(App):
         self.editing_transaction_id = None
 
     def build(self):
-        Window.size = (dp(540), dp(1060))
+        Window.size = (540, 1060)
         Window.minimum_width = 520
         Window.minimum_height = 1020
         self.rebuild_screens("login")

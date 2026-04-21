@@ -25,6 +25,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     novnc \
     pkg-config \
     websockify \
+    xclip \
+    xsel \
     x11vnc \
     xvfb \
     zlib1g-dev \
