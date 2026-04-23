@@ -18,7 +18,7 @@
 
 ## Pages
 
-The application intentionally contains the seven pages defined by the supplied `Create All Pages` UI artifact:
+The application contains seven primary pages:
 
 1. Login
 2. Register
@@ -42,4 +42,4 @@ When overspending rules trigger and email reminders are enabled, the app writes 
 
 ## Design Mapping
 
-The Kivy implementation follows the screen set from `Create All Pages` while preserving the course-required settings functionality by embedding those controls into the `Profile` page.
+The Kivy implementation preserves the same seven-screen workflow while embedding settings controls into the `Profile` page.

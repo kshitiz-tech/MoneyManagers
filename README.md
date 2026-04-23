@@ -1,6 +1,6 @@
 # Money Manager
 
-Money Manager is a full-stack budgeting application built with Python, Kivy, and SQLite. It implements the final-project scope from `MoneyManagers_ProjectFeatures-1-1.pdf` and mirrors the supplied `Create All Pages` mobile UI with Kivy screens.
+Money Manager is a budgeting application built with Python, Kivy, and SQLite.
 
 ## Technologies and Versions
 
@@ -21,7 +21,7 @@ Money Manager is a full-stack budgeting application built with Python, Kivy, and
 
 ## Implemented Pages
 
-The app contains exactly seven pages derived from the supplied `Create All Pages` design:
+The app contains exactly seven pages:
 
 1. Login
 2. Register
@@ -90,8 +90,7 @@ python main.py
 7. Review category breakdowns on the Statistics page.
 8. Save preferences on the Profile page.
 
-## Notes for Grading
+## Notes
 
 - Runtime data is stored in `data/money_manager.db`.
 - Email reminders are represented by lines appended to `data/outbox.log` whenever new overspending alerts are triggered and email reminders are enabled.
-- The UI is intentionally simple and professional to keep the deliverable easy to run and review.
